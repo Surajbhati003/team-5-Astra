@@ -1,103 +1,133 @@
-/* Dark mode styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #ffffff;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
+:root {
+    --color-bg: #111827;
+    --color-bg-secondary: #1f2937;
+    --color-primary: #6366f1;
+    --color-primary-hover: #4f46e5;
+    --color-text: #f3f4f6;
+    --color-text-secondary: #9ca3af;
+    --color-border: #374151;
 }
 
-/* Main quiz container */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; /* Removes unwanted blue outline */
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    background: rgba(52, 152, 219, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.back-button:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
 .quiz-container {
-    background: #1e1e1e;
+    background: var(--color-bg-secondary);
     width: 50%;
-    margin: auto;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    margin-top: 50px; /* Moves quiz part down */
 }
 
-/* Header */
 h1 {
     margin-bottom: 20px;
     font-size: 24px;
+    color: var(--color-primary);
 }
 
-/* Question progress display */
-#question-progress {
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 5px;
-    display: inline-block;
-    margin-bottom: 15px;
-    color: #17a2b8; /* Blue-Green Highlight */
-}
-
-/* Question container */
 #question-container {
-    background: #2a2a2a;
+    background: var(--color-bg);
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 15px;
 }
 
-/* Question topic */
 .topic {
-    color: #bbbbbb;
+    color: var(--color-text-secondary);
     font-size: 14px;
     margin-bottom: 15px;
 }
 
-/* Options button styling */
 .option-btn {
     display: block;
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: none;
+    border: 2px solid var(--color-border);
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #333;
-    color: #fff;
-    transition: background 0.3s;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text);
+    transition: background 0.3s, transform 0.3s, border 0.3s;
 }
 
 .option-btn:hover {
-    background-color: #444;
+    background-color: rgba(99, 102, 241, 0.1);
+    border-color: var(--color-primary);
 }
 
-/* Correct and incorrect answer styling */
 .correct {
-    background-color: #17a2b8 !important; /* Blue-Green */
-    color: white;
+    background-color: var(--color-primary) !important;
+    color: var(--color-bg);
     font-size: 18px;
     font-weight: bold;
     padding: 12px;
     border-radius: 5px;
+    border: 2px solid var(--color-primary);
+    transition: background 0.3s, transform 0.3s;
 }
 
 .incorrect {
-    background-color: #dc3545 !important;
-    color: white;
+    background-color: #dc2626 !important;
+    color: var(--color-bg);
     font-size: 18px;
     font-weight: bold;
     padding: 12px;
     border-radius: 5px;
+    border: 2px solid #b91c1c;
+    transition: background 0.3s, transform 0.3s;
 }
 
-/* Feedback container */
 #feedback-container {
     font-size: 18px;
     margin-top: 15px;
     padding: 12px;
     border-radius: 5px;
+    background: var(--color-bg-secondary);
+    border-left: 5px solid var(--color-primary);
+    color: var(--color-text-secondary);
 }
 
-/* Next button */
 #next-button, #restart-button {
     display: block;
     width: 100%;
@@ -107,21 +137,20 @@ h1 {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #007bff;
+    background-color: var(--color-primary);
     color: white;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.3s;
 }
 
 #next-button:hover, #restart-button:hover {
-    background-color: #0056b3;
+    background-color: var(--color-primary-hover);
+    transform: scale(1.05);
 }
 
-/* Hidden class */
 .hidden {
     display: none;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .quiz-container {
         width: 90%;
